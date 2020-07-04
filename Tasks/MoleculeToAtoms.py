@@ -68,6 +68,12 @@ class MyClass:
             var = var.replace(']', ')')
             return var
 
+        if isinstance(var, str):
+            pass
+        elif not isinstance(var, str):
+            print('Вы ввели неправильный тип данных ')
+            raise TypeError(' the type of incoming values does not match the expected values')
+
         num = str(1234567890)
         print('Формула:', var)
         var = converting_brackets(var)
@@ -145,7 +151,7 @@ class MyClass:
 if __name__ == '__main__':
     # Here we can make console input and check how function works
 
-    var = 'K4[ON(SO3)2]2'
+    var ='K4[ON(SO3)2]2'
 
     result = MyClass().parse(var)
 

@@ -44,6 +44,12 @@ class MyClass:
             else:
                 return 'english'
 
+        if isinstance(var, list):
+            pass
+        elif not isinstance(var, list):
+            print('Вы ввели неправильный тип данных ')
+            raise TypeError(' the type of incoming values does not match the expected values')
+
         if len(var) == 0:
             if language_definition(var) == 'english':
                 result = 'no one likes this.'
