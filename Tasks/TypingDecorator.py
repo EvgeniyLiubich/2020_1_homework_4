@@ -31,9 +31,10 @@ acc(0.1, 0.2, 0.4) -> 0.7000000000000001
 
 class MyClass:
     # Декоратор бы работает если его запустить вне класса, но при переносе сюда в него попадает еще один аргумент '__main__.MyClass object at 0x00000186BD6CA2B0'.... и ничего не работает =(((
+
     def typed(strict=False):
         def decorator(function_to_decorate):
-            def wrapper(*args):
+            def wrapper(self, *args):
                 dict1 = function_to_decorate.__annotations__
                 print("Аргументы:", *args)
                 args = list(args)
@@ -107,5 +108,5 @@ if __name__ == '__main__':
     a = 'a'
     b = 'b'
     c = 'c'
-    result = MyClass().convert_upper(a, b, c)
+    result = MyClass().acc(a, b, c)
     print(result)

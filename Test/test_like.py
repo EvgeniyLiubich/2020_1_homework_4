@@ -2,7 +2,9 @@ import unittest
 from Tasks.Like import MyClass
 
 
-class TestLike(unittest.TestCase):
+class TestLikeCase(unittest.TestCase):
+    """Тест для Like.py"""
+
     def setUp(self):
         pass
 
