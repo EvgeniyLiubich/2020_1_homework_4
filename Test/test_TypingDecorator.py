@@ -25,3 +25,7 @@ class TestTypingDecoratorCase(unittest.TestCase):
         self.assertEqual(MyClass().convert_upper('Стас Михайлов'), 'СТАС МИХАЙЛОВ')
         self.assertNotEqual(MyClass().convert_upper('Евгений'), 'МИХАИЛ')
         self.assertNotEqual(MyClass().convert_upper('Евгений'), 'Евгений')
+
+        
+if __name__ == '__main__':
+    unittest.main()
