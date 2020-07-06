@@ -72,9 +72,9 @@ class MyClass:
                             return float(function_to_decorate(*args))
                         if dict1['return'] == type(True):
                             return bool(function_to_decorate(*args))
-                else:
-                    return function_to_decorate(*args)
-                    # print(type(function_to_decorate(*args)))
+                # else:
+                return function_to_decorate(*args)
+                # print(type(function_to_decorate(*args)))
 
             return wrapper
 
