@@ -53,7 +53,7 @@ class MyClass:
     print(__name__)
     def advanced_calc(self, formula_string):
         OPERATORS = {'+': (1, lambda x, y: x + y), '-': (1, lambda x, y: x - y),
-                     '*': (2, lambda x, y: x * y), '/': (2, lambda x, y: x / y)}
+                     '*': (2, lambda x, y: x * y), '/': (2, lambda x, y: x / y if y != 0 else print('На ноль делить нельзя'))}
         def parse(formula_string):
             number = ''
             for s in formula_string:
@@ -100,7 +100,11 @@ class MyClass:
             for token in polish:
                 if token in OPERATORS:  # если приходящий элемент - оператор,
                     y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
-                    stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
+                    if token == '/' and y == 0:
+                        print('На ноль делить нельзя')
+                        raise ZeroDivisionError()
+                    else:
+                        stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
                 else:
                     stack.append(token)
             return stack[0]  # результат вычисления - единственный элемент в стеке
@@ -119,7 +123,7 @@ class MyClass:
 if __name__ == '__main__':
     # Here we can make console input and check how function works
 
-    var = input('Input Expression: ')
+    var = input('Введите выражение: ')
 
     result = MyClass().advanced_calc(var)
 
